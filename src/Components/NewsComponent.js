@@ -1,6 +1,6 @@
 import React, { Component }  from 'react'
 import NewsItem from './NewsItem'
-import proptypes from 'prop-types'; 
+// import proptypes from 'prop-types'; 
 // var PropTypes = require('prop-types'); 
 
 

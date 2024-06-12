@@ -1,10 +1,6 @@
 import React, { Component }  from 'react'
 import NewsItem from './NewsItem'
-// import proptypes from 'prop-types'; 
-// var PropTypes = require('prop-types'); 
 
-
-// import Spiner from './Spiner';
 
 export default class NewsComponent extends Component {
   constructor(){
@@ -16,23 +12,22 @@ export default class NewsComponent extends Component {
     }
   }
 
-  // const [text, setText] = useState(''); 
 
   
   async componentDidMount() {
+
+    const apiUrl = process.env.REACT_APP_API_URL;
+    const apiKey = process.env.REACT_APP_API_KEY;
     
-    let url=`https://newsapi.org/v2/top-headlines?country=${`in`}&category=${this.props.category
-  }&apiKey=0eb654cb92c74161afbc78b32e131981`;
+    let url=`${apiUrl}${`in`}&category=${this.props.category
+  }&apiKey=${apiKey}`;
     let data= await fetch(url);
     let passedData= await data.json();
 
-    console.log(passedData);
+
     console.log("FETCHING>>>");
     this.setState({articles:passedData.articles});
     
-    console.log("setPROGRESS");
-    // this.props.setProgress(100);
-
   }
 
   render() {
